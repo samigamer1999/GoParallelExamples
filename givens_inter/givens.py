@@ -4,10 +4,14 @@ from numpy.ctypeslib import ndpointer
 # On charge le module go compilé
 lib = cdll.LoadLibrary("./givens.so")
 
-
-pyarr = [1,2,3,4,5,6,7,8,9]  # Matrice à décomposer (en 1D)
-rows = 3 # On précise les lignes
-cols = 3 # les colonnes
+matrice = [[1,2,3],[4,5,6],[7,8,9]]
+pyarr = []  # Matrice à décomposer (en 1D)
+for j in range(len(matrice)):
+  for i in range(len(matrice[0])):
+    pyarr.append(matrice[i][j])
+ 
+rows = len(matrice) # On précise les lignes
+cols = len(matrice[0]) # les colonnes
 
 # On précise les types des paramètres en entrées et sortie de la fonction QR sur Go 
 lib.QR.argtypes = [c_double * len(pyarr)]
