@@ -6,8 +6,8 @@ lib = cdll.LoadLibrary("./givens.so")
 
 matrice = [[1,2,3],[4,5,6],[7,8,9]]
 pyarr = []  # Matrice à décomposer (en 1D)
-for j in range(len(matrice)):
-  for i in range(len(matrice[0])):
+for i in range(len(matrice)):
+  for j in range(len(matrice[0])):
     pyarr.append(matrice[i][j])
  
 rows = len(matrice) # On précise les lignes
