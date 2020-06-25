@@ -65,7 +65,7 @@ extern "C" {
 #endif
 
 
-extern GoUintptr CalcPositions(double* p0, double* p1, double* p2, int p3, int p4, int p5, int p6, double p7);
+extern GoUintptr CalcPositions(double* p0, double* p1, double* p2, int p3, int p4, int p5, int p6, int p7);
 
 #ifdef __cplusplus
 }

@@ -162,7 +162,7 @@ func calculateAcceleration(body *Body, node *Node, theta float64){
 
 
 //export CalcPositions
-func CalcPositions(posArray *C.double, velArray *C.double, massArray *C.double, Size C.int, timestep C.int, width C.int, height C.int, theta C.double) uintptr{
+func CalcPositions(posArray *C.double, velArray *C.double, massArray *C.double, Size C.int, timestep C.int, width C.int, height C.int, theta C.int) uintptr{
 
     // On récupère toutes les listes python, et on les transforme en GoSlices
 	posSlice := (*[1 << 30]C.double)(unsafe.Pointer(posArray))[:2 * Size: 2 * Size]
@@ -217,7 +217,7 @@ func CalcPositions(posArray *C.double, velArray *C.double, massArray *C.double, 
 	   go func(i int) {
 		    for j:= (i - 1) * len(bodies) / extraGoroutines; j < i * len(bodies) / extraGoroutines; j++{
 		            bodies[j].acc = vector{0, 0}
-		            calculateAcceleration(&bodies[j], root, float64(theta))
+		            calculateAcceleration(&bodies[j], root, float64(theta)/100)
 		            bodies[j].vel = bodies[j].vel.add(bodies[j].acc.scale(float64(timestep)))
 		            bodies[j].pos = bodies[j].pos.add(bodies[j].vel.scale(float64(timestep)))
 

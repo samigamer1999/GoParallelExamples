@@ -2,6 +2,7 @@ from ctypes import *
 from numpy.ctypeslib import ndpointer
 import pygame
 import random
+from argparse import ArgumentParser
 
 AU = (149.6e6 * 1000)
 SCALE = 50 / AU
@@ -11,14 +12,22 @@ def main():
     # On charge le module Go compilé 
     lib = cdll.LoadLibrary("./barneshut.so")
 
+    # On lit les arguments de la ligne de commande
+    parser = ArgumentParser()
+    parser.add_argument("-x", "--width", dest='width', help="largeur de la fenêtre")
+    parser.add_argument("-y", "--height", dest='height', help="hauteur de la fenêtre")
+    parser.add_argument("-n", "--number", dest='number', help='Nombre de corps')
+    parser.add_argument("-t", "--theta", dest='theta', help='theta')
+    parser.add_argument("-f", "--file", dest='file', help='Utiliser les données d\'un fichier', metavar="TEXT")
+    args = parser.parse_args()
     # On choisit la largeur et hauteur de notre fenêtre
-    width = 1000
-    height = 1000
+    width = eval(args.width)
+    height = eval(args.height)
 
     # Nombre de corps
-    n = 100
+    n = eval(args.number)
     # Le facteur theta
-    theta = 0.5
+    theta = eval(args.theta)
 
     # On initilise les paramètres de pygame
     pygame.init()
@@ -26,10 +35,22 @@ def main():
     clock = pygame.time.Clock()
 
     # On initialise les tableaux de masses, vitesses initiales et positions alétoirement
-    mass = [random.randint(1, 10000) * 10 ** 24 for i in range(n)]
-    pos = [(-9 + 18 * random.uniform(0, 1) ) * AU for i in range(2*n)]
-    vel = [(-10 + 20 * random.uniform(0, 1)) * 1000 for i in range(2*n)]
-    
+    if args.file == None:
+        mass = [random.randint(1, 10000) * 10 ** 24 for i in range(n)]
+        pos = [(-9 + 18 * random.uniform(0, 1) ) * AU for i in range(2*n)]
+        vel = [(-10 + 20 * random.uniform(0, 1)) * 1000 for i in range(2*n)]
+    else:
+        mass =[]
+        pos = []
+        vel = []
+        file = open(args.file, 'r')
+        for line in file:
+            temp = line.split()
+            mass.append(eval(temp[0]))
+            pos.append(eval(temp[1])) #posx
+            pos.append(eval(temp[2])) #posy
+            vel.append(eval(temp[3])) #velx
+            vel.append(eval(temp[4])) #vely
     while True:
         # Controler le pas de temps 
         slider = 1
@@ -52,7 +73,7 @@ def main():
                     return
 
             # On précise les types des paramètres en entrées et sortie de la fonction CalcPositions sur Go 
-            lib.CalcPositions.argtypes = [c_double * len(pos)] + [c_double * len(vel)] + [c_double * len(mass)] + [c_double]
+            lib.CalcPositions.argtypes = [c_double * len(pos)] + [c_double * len(vel)] + [c_double * len(mass)] 
             lib.CalcPositions.restype = ndpointer(dtype = c_double, shape = (4*len(mass),))
 
             # Crée des C arrays à la base de py arrays 
@@ -61,7 +82,7 @@ def main():
             mass = (c_double * len(mass))(*mass)
 
             # Retourne une liste 1D , concatenation de postition et vitesses des corps
-            posandvels = lib.CalcPositions(pos, vel, mass, len(mass), timestep, width, height)
+            posandvels = lib.CalcPositions(pos, vel, mass, len(mass), timestep, width, height, int(theta * 100))
 
             # On met à jour les positions et les vitesses
             pos = posandvels[:2*len(mass)]
