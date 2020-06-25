@@ -15,4 +15,5 @@ lib.Sort.restype = ndpointer(dtype = c_double, shape = (len(pyarr),))
 arr = (c_double * len(pyarr))(*pyarr)
 
 # Print le résultat
-print(lib.Sort(arr, len(arr)))
+result = lib.Sort(arr, len(arr))
+print(result)
