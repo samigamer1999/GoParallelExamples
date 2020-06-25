@@ -11,4 +11,4 @@ Maintenant sur le script Python il faut renseigner :
 * Le facteur theta (ligne 21 du script)
 
 En plus d’avoir une sortie graphique, vous avez la sortie de toute les données nécessaires
-avec **posandvels** (ligne 64 du script).
+avec **pos** (liste des positions) et **vels** (liste des vitesses) (liste des   (ligne 67, 68 du script).
