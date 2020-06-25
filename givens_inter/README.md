@@ -4,7 +4,7 @@ Utiliser notre programme de rotation de Givens via Python
 Pour utiliser notre programme de rotation de Givens, il va falloir que vous importiez de Github une librairie : la librairie matrix.go (disponible sur [https://github.com/skelterjohn/go.matrix](https://github.com/skelterjohn/go.matrix).
 
 Pour cela veuillez vous placer avec votre terminal sur l’espace de travail où se situe le script Go et le script Python.  
-Veuillez tapez :  go get "github.com/skelterjohn/go.matrix"
+Veuillez tapez :  `go get "github.com/skelterjohn/go.matrix"`
 
 C’est bon la librairie est installée.
 
