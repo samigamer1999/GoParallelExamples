@@ -9,7 +9,7 @@ Pour éxecuter le programme, vous devez lui donner les arguments nécessaires da
 
 Ceci permettra de créer une fenêtre de résolution 1000x1000 avec 100 corps aléatoires et un theta = 0.5.
 
-Afin d'utiliser vos propres données des corps, utilisez `-f votrefichier.txt`.
+Afin d'utiliser vos propres données des corps, utilisez `-f votrefichier.txt`. Le fichier devra contenir (masse, posx, posy, velx, vely) dans cet ordre pour chaque ligne (chaque corps) avec un espace entre chaque valeur.
 
 En plus d’avoir une sortie graphique, vous avez la sortie de toute les données nécessaires
 avec **pos** (liste des positions) et **vels** (liste des vitesses) (liste des   (ligne 67, 68 du script).
