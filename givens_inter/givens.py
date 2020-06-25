@@ -5,9 +5,9 @@ from numpy.ctypeslib import ndpointer
 lib = cdll.LoadLibrary("./givens.so")
 
 
-pyarr = [1,2,3,4,5,6,7,8,9]  # Array to sort here
-rows = 3
-cols = 3
+pyarr = [1,2,3,4,5,6,7,8,9]  # Matrice à décomposer (en 1D)
+rows = 3 # On précise les lignes
+cols = 3 # les colonnes
 
 # On précise les types des paramètres en entrées et sortie de la fonction QR sur Go 
 lib.QR.argtypes = [c_double * len(pyarr)]
