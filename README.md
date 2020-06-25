@@ -1,1 +1,1 @@
-# GoParallelExamples
+# Exemples de parallélisation avec Go
