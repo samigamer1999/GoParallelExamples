@@ -8,7 +8,7 @@ Il consiste en 3 algorithmes de calculs parallélisés:
 Tous ces algorithmes ont été implémentés à l'aide de Go puis interfacés avec Python pour assurer une utilisation simple.
 
 ## Installer numpy
-La librairie Numpy est cruciale pour le fonctionnement de l'interfaçage en Go et Python. 
+La librairie Numpy est cruciale pour le fonctionnement de l'interfaçage entre Go et Python. 
 Vous pouvez l'installer en utilisant la commande : `pip3 install numpy`
 
 
