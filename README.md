@@ -1,5 +1,5 @@
 # Exemples de parallélisation avec Go
-Ce travail fait écho au projet CODEV 16 : **Exploration du calcul en parallèle avec le langage Go**  
+Ce travail fait écho au projet CODEV 16 : **Exploration du calcul en parallèle avec le langage Go**  qui a été effectué dans le cadre la première année de l'école **IMT-Atlantique**
 Il consiste en 3 algorithmes de calculs parallélisés:
   - Quicksort
   - L'algorithme des rotations de Givens
