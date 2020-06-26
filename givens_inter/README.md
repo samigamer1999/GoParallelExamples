@@ -10,6 +10,7 @@ C’est bon la librairie est installée.
 
 Maintenant sur le script Python il faut renseigner la matrice que vous voulez décomposer (ligne 8 sur le script) derrière la variable **matrix**.
 
-A la fin de la fonction vous avez deux matrices **r,q** de type numpy qui sont le résultat de la décomposition de **matrix** (lignes 29 et 30 sur le script).
+A la fin de la fonction vous avez deux matrices **r,q** de type numpy qui sont le résultat de la décomposition de **matrix** (lignes 31 et 32 sur le script).
+Le temps d'éxectution **t2** s'affiche à la fin du script. 
 
 	
