@@ -1,5 +1,6 @@
 Utiliser notre programme de résolution de problèmes à N corps via Python
 ------------------------------------
+Ce programme est une implémentation de l'algorithme de Barnes-Hut dans Go, interfacé avec Python qui nous fournira une interface graphique.
 
 Pour utiliser notre programme de résolution à N corps il va falloir que vous importiez la librairie **pygame** sur Python 3.  
 Pour cela veuillez taper sur votre terminal : `pip3 install pygame`
