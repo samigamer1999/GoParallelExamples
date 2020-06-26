@@ -24,7 +24,7 @@ t1 = time.clock()
 # qr_array est une liste à 1D qui contient R et Q
 qr_array = lib.QR(arr, len(arr), rows, cols)
 t2 = time.clock() - t1
-print(t2) # Temps d'éxectution
+print("Temps d'éxecution :", t2) # Temps d'éxectution
 # On reconstruit les deux matrices grâce à qr_array
 r = qr_array[0:rows * cols].reshape(rows, cols)
 q = qr_array[rows * cols:].reshape(rows, cols)
