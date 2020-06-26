@@ -3,6 +3,7 @@ from numpy.ctypeslib import ndpointer
 import pygame
 import random
 from argparse import ArgumentParser
+import time
 
 AU = (149.6e6 * 1000)
 SCALE = 50 / AU
@@ -80,14 +81,18 @@ def main():
             pos = (c_double * len(pos))(*pos)
             vel = (c_double * len(vel))(*vel)
             mass = (c_double * len(mass))(*mass)
-
+            
+            t1 = time.clock()
+            
             # Retourne une liste 1D , concatenation de postition et vitesses des corps
             posandvels = lib.CalcPositions(pos, vel, mass, len(mass), timestep, width, height, int(theta * 100))
 
             # On met à jour les positions et les vitesses
             pos = posandvels[:2*len(mass)]
             vel = posandvels[2*len(mass):]
-           
+            t2 = time.clock() - t1
+            print("Temps de mise-à-jour :", t2)
+            
             # Le traçage
             screen.fill((30, 30, 30))
             for i in range(len(mass)):
