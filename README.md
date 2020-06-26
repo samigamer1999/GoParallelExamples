@@ -1,6 +1,6 @@
 # Exemples de parallélisation avec Go
 Ce travail fait écho au projet CODEV 16 : **Exploration du calcul en parallèle avec le langage Go**  qui a été effectué dans le cadre la première année de l'école **IMT-Atlantique**.
-![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FIMT_Atlantique&psig=AOvVaw1yTWfxC4vROa_dwTJl80ix&ust=1593250885081000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJDB3ZqYn-oCFQAAAAAdAAAAABAD)
+![alt text](https://upload.wikimedia.org/wikipedia/commons/6/67/IMT_Atlantique_logo.png)
 
 Il consiste en 3 algorithmes de calculs parallélisés:
   - Quicksort
