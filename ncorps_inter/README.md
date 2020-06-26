@@ -14,4 +14,5 @@ Afin d'utiliser vos propres données des corps, utilisez `-f votrefichier.txt`. 
 Pour contrôler le pas de temps, utilisez les flêches gauche/droite pour diminuer/augmenter sa valeur.
 
 En plus d’avoir une sortie graphique, vous avez la sortie de toute les données nécessaires
-avec **pos** (liste des positions) et **vels** (liste des vitesses) (liste des   (ligne 88, 89 du script).
+avec **pos** (liste des positions) et **vels** (liste des vitesses) (liste des   (ligne 91, 92 du script).
+Le temps de mise-à-jour après un seul pas de temps s'affiche sur l'écran à chaque tick.
